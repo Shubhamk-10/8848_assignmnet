@@ -102,13 +102,17 @@ app_license = "MIT"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
+doc_events = {
+    "Item": {
+        "validate" : "test_assignment.custom_item.set_item_attributes",
+        "before_save" : "test_assignment.custom_item.get_conv_factor_value"
+    }
 #	"*": {
 #		"on_update": "method",
 #		"on_cancel": "method",
 #		"on_trash": "method"
 #	}
-# }
+}
 
 # Scheduled Tasks
 # ---------------
