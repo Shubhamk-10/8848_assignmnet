@@ -10,8 +10,9 @@ def set_item_attributes(self, method):
                     if attr.attribute == "Yield":
                         atr = "Yield_Num"
                         self.db_set(atr.lower(), attr.attribute_value)
-                    atr = attr.attribute
-                    self.db_set(atr.lower(), attr.attribute_value)
+                    else:        
+                        atr = attr.attribute
+                        self.db_set(atr.lower(), attr.attribute_value)
             
 
 def get_conv_factor_value(self, method):
