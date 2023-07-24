@@ -1,4 +1,5 @@
 import frappe
+from frappe.utils  import flt
 
 def set_item_attributes(self, method):
     attr_list = ["Width", "Height", "Yield"]
@@ -14,7 +15,7 @@ def set_item_attributes(self, method):
             
 
 def get_conv_factor_value(self, method):
-    data = {"yield_num": float(self.yield_num), "length": float(self.length), "width": float(self.width), "height": float(self.height)}
+    data = {"yield_num": flt(self.yield_num) if self.yield_num else 1, "length": flt(self.length) if self.length else 1, "width": flt(self.width) if self.width else 1, "height": flt(self.height) if self.height else 1}
     if self.uoms:
         for cf in self.uoms:
             if cf.uom and cf.formula:
